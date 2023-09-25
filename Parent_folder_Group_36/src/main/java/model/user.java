@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.HashMap;
+import main.java.model.enquiry;
 
 class user {
     // Contains private attributes and public methods for the users
@@ -165,5 +166,36 @@ class employee extends user {
         List<String> myList = new ArrayList<String>();
         // Should return a given student's details as provided with the studentID
         return myList;
+    }
+}
+
+class itAdmin extends employee {
+    private List<String> instructors = new ArrayList<String>();
+    private List<String> students = new ArrayList<String>();
+}
+
+class manager extends employee {
+    private List<enquiry> enquiries = new ArrayList<enquiry>();
+    private List<String> employees = new ArrayList<String>();
+    private List<String> instructors = new ArrayList<String>();
+    private List<String> students = new ArrayList<String>();
+
+    public void respondEnquiry(enquiry enquiryID) {
+        // Should allow the manager to respond to an enquiry provided with the enquiryID
+    }
+}
+
+class financeManager extends employee {
+    // The finance manager has exclusive access to a database with the financial information of the business
+    // for this skeleton code, we'll use a list
+
+    private List<String> financialInformation = new ArrayList<String>();
+
+    public void generateReport(List<String> financialInformation) {
+        // Should be responsible for generating a report for the financial manager
+    }
+
+    public void generateDashboard(List<String> financialInformation) {
+        // Should be responsible for generating a report for the financial manager
     }
 }
