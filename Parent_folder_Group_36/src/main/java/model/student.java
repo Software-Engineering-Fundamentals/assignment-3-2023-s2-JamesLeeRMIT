@@ -11,6 +11,10 @@ public class student extends user {
     private HashMap<String, Float> courseProgress;
     private HashMap<String, Float> marks;
 
+    public student(String name, String email, String password, String contactNumber, String studentID, LocalDate dateOfBirth) {
+        // This method should construct the student class with the given attributes
+    }
+
     // The methods below should set their respective attributes
     public void setStudentID(String studentID) {
         this.studentID = studentID;
@@ -82,12 +86,13 @@ public class student extends user {
     }
 
     public void makeEnquiry(manager manager) {
+        // Should create an enquiry and pass it on to the manager
         String title = "Instructor question visibility";
         String body = "Hello, I'm quickly writing to ask if everyone can see the questions I ask the instructor.";
         enquiry newEnquiry = new enquiry();
         
         newEnquiry.generateEnquiry("Enq00001", title, this.getName(), this.studentID, body);
-        manager.appendRecieved(newEnquiry);
+        manager.appendEnquiry(newEnquiry);
     }
 
     public void postQuestion(String courseID) {
