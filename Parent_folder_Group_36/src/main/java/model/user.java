@@ -62,9 +62,8 @@ class user {
     }
 
     public void enquiryRecieved() {
-        enquiry enquiryRecieved = recieved.get(0);
-
-
+        // Should pop the first enquiry recieved to be printed, marking it as read
+        
     }
 
 }
