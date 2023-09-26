@@ -13,6 +13,7 @@ class user {
     private String email;
     private String password;
     private String contactNumber;
+    private List<enquiry> recieved;
 
     // All set methods below should update their respective attributes
     public void updateName(String name) {
@@ -31,6 +32,10 @@ class user {
         this.contactNumber = contactNumber;
     }
 
+    public void setRecieved(List<enquiry> recieved) {
+        this.recieved = recieved;
+    }
+
     // All get methods should return their respective attributes
     public String getName() {
         return name;
@@ -46,6 +51,20 @@ class user {
 
     public String getContactNumber() {
         return contactNumber;
+    }
+
+    public List<enquiry> getRecieved() {
+        return recieved;
+    }
+
+    public void appendRecieved(enquiry enquiry) {
+        recieved.add(enquiry);
+    }
+
+    public void enquiryRecieved() {
+        enquiry enquiryRecieved = recieved.get(0);
+
+
     }
 
 }
@@ -127,8 +146,13 @@ class student extends user {
         return false;
     }
 
-    public void makeEnquiry() {
-        // Should send an enquiry to the manager
+    public void makeEnquiry(manager manager) {
+        String title = "Instructor question visibility";
+        String body = "Hello, I'm quickly writing to ask if everyone can see the questions I ask the instructor.";
+        enquiry newEnquiry = new enquiry();
+        
+        newEnquiry.generateEnquiry("Enq00001", title, this.getName(), this.studentID, body);
+        manager.appendRecieved(newEnquiry);
     }
 
     public void postQuestion(String courseID) {
@@ -138,6 +162,10 @@ class student extends user {
     public void requestCourseRefund(String courseID) {
         // requests a refund for the desired course as provided with the courseID
     }
+}
+
+class instructor extends user {
+
 }
 
 class employee extends user {
@@ -176,12 +204,32 @@ class itAdmin extends employee {
 
 class manager extends employee {
     private List<enquiry> enquiries = new ArrayList<enquiry>();
-    private List<String> employees = new ArrayList<String>();
-    private List<String> instructors = new ArrayList<String>();
-    private List<String> students = new ArrayList<String>();
+    private HashMap<String, employee> employees;
+    private HashMap<String, instructor> instructors;
+    private HashMap<String, student> students;
 
-    public void respondEnquiry(enquiry enquiryID) {
-        // Should allow the manager to respond to an enquiry provided with the enquiryID
+    public void respondEnquiry(enquiry originalEnquiry) {
+        enquiry response = new enquiry();
+        String title = "Re: ";
+        String body = "Hello, yes, everyone is able to see questions you ask the instructor spesifically through the course page, hope this helps!";
+
+        title = title.concat(originalEnquiry.getTitle());
+            
+        response.generateResponce("00002", title, body);
+
+        if (students.get(originalEnquiry.getSenderID()) != null) {
+            student sender = students.get(originalEnquiry.getSenderID());
+            sender.appendRecieved(response);
+        }
+
+        else {
+            instructor sender = instructors.get(originalEnquiry.getSenderID());
+            sender.appendRecieved(response);
+        }
+    }
+
+    public void appendEnquiry(enquiry enquiry) {
+        this.enquiries.add(enquiry);
     }
 }
 

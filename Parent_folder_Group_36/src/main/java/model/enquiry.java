@@ -61,4 +61,24 @@ public class enquiry {
     public LocalDate getDate() {
         return date;
     }
+
+    public void generateEnquiry(String enquiryID, String title, String sender, String senderID, String body) {
+        setEnquiryID(enquiryID);
+        setTitle(title);
+        setSender(sender);
+        setSenderID(senderID);
+        setBody(body);
+        setDate(LocalDate.now());
+    }
+
+    public void generateResponce(String enquiryID, String title, String body) {
+        setEnquiryID(enquiryID);
+        setTitle(title);
+        setSender("Manager");
+        setSenderID("00001");
+        setBody(body);
+        setDate(LocalDate.now());
+    }
+
+
 }
