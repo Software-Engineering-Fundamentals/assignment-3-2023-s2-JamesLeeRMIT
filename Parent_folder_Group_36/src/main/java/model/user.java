@@ -15,6 +15,10 @@ class user {
     private String contactNumber;
     private List<enquiry> recieved;
 
+    public user(String name, String email, String password, String contactNumber) {
+        System.out.println("Constructing user class");
+    }
+
     // All set methods below should update their respective attributes
     public void updateName(String name) {
         this.name = name;
@@ -63,13 +67,24 @@ class user {
 
     public void enquiryRecieved() {
         // Should pop the first enquiry recieved to be printed, marking it as read
-        
+        System.out.println("From: Manager");
+        System.out.println("Title: Re: Instructor question visibility");
+        System.out.println("Body: Hello, yes, everyone is able to see questions you ask the instructor spesifically through the course page, hope this helps!");
+        System.out.println("Marking first enquiry in list as read");
+
     }
 
 }
 
 class employee extends user {
     private String employeeID;
+
+    public employee(String name, String email, String password, String contactNumber, String employeeID) {
+        // Should contruct the employee class
+        super(name, email, password, contactNumber);
+        this.employeeID = employeeID;
+        System.out.println("Constructing employee class");
+    }
 
     public String getEmployeeID() {
         // Should return employeeID

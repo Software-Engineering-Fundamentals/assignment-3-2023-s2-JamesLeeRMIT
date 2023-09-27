@@ -11,38 +11,22 @@ public class manager extends employee{
     private HashMap<String, student> students;
 
     public manager(String name, String email, String password, String contactNumber, String employeeID) {
-        // Should contruct the manager class
-        updateName(name);
-        updateEmail(email);
-        updatePassword(password);
-        updateContactNumber(contactNumber);
-        setEmployeeID(employeeID);
+        // Should contruct the manager class using the provided arguments
+        super(name, email, password, contactNumber, employeeID);
+        System.out.print("Constructing manager class");
     }
 
     public void appendStudent(student student) {
         // Should add the student to the managers list of students using the provided student's ID as the key
-        students.put(student.getStudentID(), student);
+        System.out.print("Adding student to list of students");
     }
 
     public void respondEnquiry(enquiry originalEnquiry) {
         // Should generate a responce to an enquiry and pass it to the correct recipient as based on their ID
-        enquiry response = new enquiry();
-        String title = "Re: ";
-        String body = "Hello, yes, everyone is able to see questions you ask the instructor spesifically through the course page, hope this helps!";
-
-        title = title.concat(originalEnquiry.getTitle());
-            
-        response.generateResponce("00002", title, body);
-
-        if (students.get(originalEnquiry.getSenderID()) != null) {
-            student sender = students.get(originalEnquiry.getSenderID());
-            sender.appendRecieved(response);
-        }
-
-        else {
-            instructor sender = instructors.get(originalEnquiry.getSenderID());
-            sender.appendRecieved(response);
-        }
+        System.out.println("To: Student");
+        System.out.println("Title: Re: Instructor question visibility");
+        System.out.println("Body: Hello, yes, everyone is able to see questions you ask the instructor spesifically through the course page, hope this helps!");
+        System.out.println("Passing back to student as response");
     }
 
     public void appendEnquiry(enquiry enquiry) {

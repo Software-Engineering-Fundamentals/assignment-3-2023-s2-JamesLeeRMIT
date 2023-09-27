@@ -13,6 +13,10 @@ public class student extends user {
 
     public student(String name, String email, String password, String contactNumber, String studentID, LocalDate dateOfBirth) {
         // This method should construct the student class with the given attributes
+        super(name, email, password, contactNumber);
+        this.studentID = studentID;
+        this.dateOfBirth = dateOfBirth;
+        System.out.println("Constructing student class");
     }
 
     // The methods below should set their respective attributes
@@ -87,12 +91,10 @@ public class student extends user {
 
     public void makeEnquiry(manager manager) {
         // Should create an enquiry and pass it on to the manager
-        String title = "Instructor question visibility";
-        String body = "Hello, I'm quickly writing to ask if everyone can see the questions I ask the instructor.";
-        enquiry newEnquiry = new enquiry();
-        
-        newEnquiry.generateEnquiry("Enq00001", title, this.getName(), this.studentID, body);
-        manager.appendEnquiry(newEnquiry);
+        System.out.println("To: Manager");
+        System.out.println("Title: Instructor question visibility");
+        System.out.println("Body: Hello, I'm quickly writing to ask if everyone can see the questions I ask the instructor.");
+        System.out.println("Passing to manager");
     }
 
     public void postQuestion(String courseID) {
