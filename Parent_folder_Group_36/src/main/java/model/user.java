@@ -71,7 +71,7 @@ class user {
         System.out.println("Title: Re: Instructor question visibility");
         System.out.println("Body: Hello, yes, everyone is able to see questions you ask the instructor spesifically through the course page, hope this helps!");
         System.out.println("Marking first enquiry in list as read");
-
+        System.out.println();
     }
 
 }

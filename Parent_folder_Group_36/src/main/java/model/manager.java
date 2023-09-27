@@ -13,12 +13,18 @@ public class manager extends employee{
     public manager(String name, String email, String password, String contactNumber, String employeeID) {
         // Should contruct the manager class using the provided arguments
         super(name, email, password, contactNumber, employeeID);
-        System.out.print("Constructing manager class");
+        System.out.println("Constructing manager class");
+        System.out.println();
     }
 
     public void appendStudent(student student) {
         // Should add the student to the managers list of students using the provided student's ID as the key
-        System.out.print("Adding student to list of students");
+        System.out.println("Adding student to list of students");
+    }
+
+    public void appendInstructor(instructor instructor) {
+        // Should add the instructor to the managers list of instructors using the provided student's ID as the key
+        System.out.println("Adding instructor to list of instructors");
     }
 
     public void respondEnquiry(enquiry originalEnquiry) {
@@ -27,6 +33,7 @@ public class manager extends employee{
         System.out.println("Title: Re: Instructor question visibility");
         System.out.println("Body: Hello, yes, everyone is able to see questions you ask the instructor spesifically through the course page, hope this helps!");
         System.out.println("Passing back to student as response");
+        System.out.println();
     }
 
     public void appendEnquiry(enquiry enquiry) {

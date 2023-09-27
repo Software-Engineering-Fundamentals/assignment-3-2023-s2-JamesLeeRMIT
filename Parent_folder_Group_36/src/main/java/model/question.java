@@ -6,6 +6,7 @@ public class question {
     public Integer getQuestionNum() {
         // Should get the question number
         System.out.println("Getting question num");
+        System.out.println();
         return 0;
     }
     // Contains private attributes and public methods enquiries

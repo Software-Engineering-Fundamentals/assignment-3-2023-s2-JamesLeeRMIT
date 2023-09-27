@@ -17,6 +17,7 @@ public class student extends user {
         this.studentID = studentID;
         this.dateOfBirth = dateOfBirth;
         System.out.println("Constructing student class");
+        System.out.println();
     }
 
     // The methods below should set their respective attributes
@@ -95,6 +96,7 @@ public class student extends user {
         System.out.println("Title: Instructor question visibility");
         System.out.println("Body: Hello, I'm quickly writing to ask if everyone can see the questions I ask the instructor.");
         System.out.println("Passing to manager");
+        System.out.println();
     }
 
     public void postQuestion(String courseID) {

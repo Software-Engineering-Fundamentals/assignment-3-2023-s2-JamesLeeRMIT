@@ -14,5 +14,6 @@ public class itAdmin extends employee {
         // Should construct the itAdmin class using the provided attributes
         super(name, email, password, contactNumber, employeeID);
         System.out.println("Constructing the IT Admin class");
+        System.out.println();
     }
 }

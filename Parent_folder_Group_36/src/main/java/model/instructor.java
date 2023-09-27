@@ -15,12 +15,18 @@ public class instructor extends user {
         super(name, email, password, contactNumber);
         this.instructorID = instructorID;
         this.coursesCreated = new ArrayList<>();
+        System.out.println("constructing instructor class");
+        System.out.println();
     }
 
     // Method for Instructor to create a course
     public void createCourse(String courseID) {
         coursesCreated.add(courseID);
+        toggleCourseVisibility(courseID);
+        toggleRefund(courseID);
         System.out.println("Course " + courseID + " has been created.");
+        System.out.println("Course " + courseID + " has been registered.");
+        System.out.println();
 
         // Real Implementation: This is where database operations or API calls to create a course would be added.
     }
@@ -42,6 +48,7 @@ public class instructor extends user {
     // Get list of students enrolled in a course
     public ArrayList<String> enrolledStudents(String courseID) {
         System.out.println("Fetching list of students enrolled in Course " + courseID + ".");
+        System.out.println();
 
         // Real Implementation: Database operations or API calls to fetch the list of enrolled students would be added here.
 
@@ -52,6 +59,7 @@ public class instructor extends user {
     // Send automated email for a course
     public void automatedEmailSending(String courseID) {
         System.out.println("Automated email sent for Course " + courseID + ".");
+        System.out.println();
 
         // Real Implementation: Integration with an email service to send automated emails would be added here.
     }
@@ -59,6 +67,7 @@ public class instructor extends user {
     // Pay the registration fee
     public boolean makePayment() {
         System.out.println("Payment of $50 made successfully for registration.");
+        System.out.println();
 
         // Real Implementation: Integration with a payment gateway to process the payment would be added here.
 
@@ -68,6 +77,7 @@ public class instructor extends user {
     // Make an enquiry
     public void makeEnquiry(String message) {
         System.out.println("Enquiry made: " + message);
+        System.out.println();
 
         // Real Implementation: This would typically involve saving the enquiry to a database or sending it to a specific department or email.
     }
