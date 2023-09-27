@@ -35,12 +35,17 @@ public class main {
         // Wouldn't be included in real implimentation
         System.out.println("Scenario 2: Student lodging an enquiry and recieving a response\n--------------------------------------------------");
 
+        // Should create a new enquiry object and pass it to the manager
+        // In real implimentation, this will utilize a web form and database in order to store enquiries and their responces
         System.out.println("Student's initial enquiry\n");
         testStudent.makeEnquiry(testManager);
 
+        // Should mark the student's enquiry as read, create a response enquiry, and pass it to the student
+        // In real implimentation, this will 
         System.out.println("Manager's reponse to enquiry\n");
         testManager.respondEnquiry(null);
 
+        // Should read the manager's response from the students perspective and mark it as read
         System.out.println("Manager's response from student's perspective\n");
         testStudent.enquiryRecieved();
     }
