@@ -1,4 +1,4 @@
-// The class for enquiries
+// The class for questions
 package main.java.model;
 
 public class question {
